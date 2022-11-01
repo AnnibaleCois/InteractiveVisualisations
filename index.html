@@ -1,0 +1,955 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Interactive Visualisations</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Department of Global Health, Stellenbosch University &amp;   School of Public Health, University of Cape Town  Contacts: acois@sun.ac.za ORCID: 0000-0002-7014-6510 Web of Science: AAK-8603-2020" />
+    <meta name="date" content="2022-11-02" />
+    <script src="index_files/header-attrs-2.16/header-attrs.js"></script>
+    <link href="index_files/remark-css-0.0.1/default.css" rel="stylesheet" />
+    <link href="index_files/tile-view-0.2.6/tile-view.css" rel="stylesheet" />
+    <script src="index_files/tile-view-0.2.6/tile-view.js"></script>
+    <script type="application/json" id="xaringanExtra-editable-docid">{"id":"f6af8f1dad564c028d15bd48cb959d08","expires":14}</script>
+    <script src="index_files/himalaya-1.1.0/himalaya.js"></script>
+    <script src="index_files/js-cookie-3.0.0/js.cookie.js"></script>
+    <link href="index_files/editable-0.2.6/editable.css" rel="stylesheet" />
+    <script src="index_files/editable-0.2.6/editable.js"></script>
+    <script src="index_files/fabric-4.3.1/fabric.min.js"></script>
+    <link href="index_files/xaringanExtra-scribble-0.0.1/scribble.css" rel="stylesheet" />
+    <script src="index_files/xaringanExtra-scribble-0.0.1/scribble.js"></script>
+    <script>document.addEventListener('DOMContentLoaded', function() { window.xeScribble = new Scribble({"pen_color":["#FF0000"],"pen_size":3,"eraser_size":30,"palette":[]}) })</script>
+    <script src="index_files/xaringanExtra-webcam-0.0.1/webcam.js"></script>
+    <script id="xaringanExtra-webcam-options" type="application/json">{"width":"200","height":"200","margin":"1em"}</script>
+    <link href="index_files/panelset-0.2.6/panelset.css" rel="stylesheet" />
+    <script src="index_files/panelset-0.2.6/panelset.js"></script>
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        TeX: { equationNumbers: { autoNumber: "AMS" } },
+      });
+    </script>
+    <style>
+    .mjx-mrow a {
+      color: black;
+      pointer-events: none;
+      cursor: default;
+    }
+    </style>
+    <link rel="stylesheet" href="assets/sydney-fonts.css" type="text/css" />
+    <link rel="stylesheet" href="assets/sydney.css" type="text/css" />
+    <link rel="stylesheet" href="assets/stellenbosch.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+.title[
+# Interactive Visualisations
+]
+.subtitle[
+## Annibale Cois
+]
+.author[
+### <span style="font-size: 80%;">Department of Global Health, Stellenbosch University &amp; <br/> School of Public Health, University of Cape Town<br/><br/>Contacts: <a href="mailto:acois@sun.ac.za" class="email">acois@sun.ac.za</a><br/>ORCID: <a href="https://orcid.org/0000-0002-7014-6510">0000-0002-7014-6510</a><br/>Web of Science: <a href="https://www.webofscience.com/wos/author/rid/AAK-8603-2020">AAK-8603-2020</a></span>
+]
+.date[
+### <span style="color: #A88B53; position: relative; top: 150px;">2 November 2022</span>
+]
+
+---
+
+class: hide_logo
+background-image: url("images/thinking.png"),url("images/typing.png")
+background-position: 10% 27%, 10% 80%
+background-size: 15%,20%
+
+
+
+<div>
+<style type="text/css">.xaringan-extra-logo {
+width: 150px;
+height: 46px;
+z-index: 0;
+background-image: url(assets/sulogo_1.png);
+background-size: contain;
+background-repeat: no-repeat;
+position: absolute;
+bottom:1em;left:60px;
+}
+</style>
+<script>(function () {
+  let tries = 0
+  function addLogo () {
+    if (typeof slideshow === 'undefined') {
+      tries += 1
+      if (tries < 10) {
+        setTimeout(addLogo, 100)
+      }
+    } else {
+      document.querySelectorAll('.remark-slide-content:not(.title-slide):not(.inverse):not(.hide_logo)')
+        .forEach(function (slide) {
+          const logo = document.createElement('div')
+          logo.classList = 'xaringan-extra-logo'
+          logo.href = null
+          slide.appendChild(logo)
+        })
+    }
+  }
+  document.addEventListener('DOMContentLoaded', addLogo)
+})()</script>
+</div>
+
+## Outline &lt;svg viewBox="0 0 512 512" style="height:1em;display:inline-block;fill:#561a34;position:fixed;top:38;right:50;" xmlns="http://www.w3.org/2000/svg"&gt;  &lt;path d="M80 368H16a16 16 0 0 0-16 16v64a16 16 0 0 0 16 16h64a16 16 0 0 0 16-16v-64a16 16 0 0 0-16-16zm0-320H16A16 16 0 0 0 0 64v64a16 16 0 0 0 16 16h64a16 16 0 0 0 16-16V64a16 16 0 0 0-16-16zm0 160H16a16 16 0 0 0-16 16v64a16 16 0 0 0 16 16h64a16 16 0 0 0 16-16v-64a16 16 0 0 0-16-16zm416 176H176a16 16 0 0 0-16 16v32a16 16 0 0 0 16 16h320a16 16 0 0 0 16-16v-32a16 16 0 0 0-16-16zm0-320H176a16 16 0 0 0-16 16v32a16 16 0 0 0 16 16h320a16 16 0 0 0 16-16V80a16 16 0 0 0-16-16zm0 160H176a16 16 0 0 0-16 16v32a16 16 0 0 0 16 16h320a16 16 0 0 0 16-16v-32a16 16 0 0 0-16-16z"&gt;&lt;/path&gt;&lt;/svg&gt;
+
+--
+.content-box-shift1[
+- ### What is an “interactive visualisation"?
+- ### Why adding interactivity to data visualisations?
+- ### Interactive visualisations in epidemiology
+]
+ 
+--
+.content-box-shift2[
+- ### Building interactive visualisations
+- ### Interactive visualisations in R with *Shiny*  
+]
+
+???
+What is a IV, its defining characteristics and elements
+Building interactive visualisations: what do we need (a 'high level' overview)
+
+---
+## What is an “interactive visualisation”?  &lt;svg viewBox="0 0 384 512" style="height:1em;display:inline-block;fill:#561a34;position:fixed;top:38;right:50;" xmlns="http://www.w3.org/2000/svg"&gt;  &lt;path d="M202.021 0C122.202 0 70.503 32.703 29.914 91.026c-7.363 10.58-5.093 25.086 5.178 32.874l43.138 32.709c10.373 7.865 25.132 6.026 33.253-4.148 25.049-31.381 43.63-49.449 82.757-49.449 30.764 0 68.816 19.799 68.816 49.631 0 22.552-18.617 34.134-48.993 51.164-35.423 19.86-82.299 44.576-82.299 106.405V320c0 13.255 10.745 24 24 24h72.471c13.255 0 24-10.745 24-24v-5.773c0-42.86 125.268-44.645 125.268-160.627C377.504 66.256 286.902 0 202.021 0zM192 373.459c-38.196 0-69.271 31.075-69.271 69.271 0 38.195 31.075 69.27 69.271 69.27s69.271-31.075 69.271-69.271-31.075-69.27-69.271-69.27z"&gt;&lt;/path&gt;&lt;/svg&gt;
+
+&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;
+##.center[*"a computational tool that store, process and visually represent data to facilitate interactive exploration"*]
+
+.right[&lt;cite&gt;Ola and Sedig (2016)&lt;/cite&gt;]
+
+???
+Key words: 
+1. **computational tool**: it is not just something we can "look at" (an image). Visual representation (i.e. generating an image) is only one element of an interactive visualisation.  An interactive visualisation also needs a way to **store** data (or access dynamically form external sources) and **process** the stored data according to the user inputs (and, often, not only from the user, but from external sources: e.g., to reach to change in the data over time).
+2. **interactive**: obvious, and interactive visualisation need a way to "interact" with the users, i.e. to respond to their inputs (And, sometimes, suggest further inputs)
+3. **facilitate exploration**: the final objectbe of an interactive visualisation is to allow users to get **better insights** on the data, compared to those they can get form a static visualisation (or from no-visualisation).
+
+---
+class: hide_logo 
+background-image: url("images/data.png"),url("images/gears.gif"),url("images/visual.png"),url("images/arrow_2.png"),url("images/arrow_2.png")
+background-position: 10% 80%, 25% 40%, 50% 10%,37% 17%,18% 56%
+background-size: 10%,20%,15%, 6%,6%
+
+???
+Users (they can be more than one...) interact with the tool at different points of the visualisation process: they can change the data, the can modify the processing (e.g. use different statistics), and the can modify the visual appearance of the visualisation beyond the data (change fonts, backgrounds, borders...)
+
+In other words, they interact with each elements of a visualisation, as defined in the grammar of graphics...
+
+--
+&lt;img src = "images/links_1.png" style = "width: 50%; position: relative; margin-top: 20%; margin-left: 20%;"&gt;&lt;/img&gt;
+&lt;img src = "images/users.png" style = "width: 20%; position: relative; margin-top: -20%; margin-left: 68%;"&gt;&lt;/img&gt;
+
+--
+&lt;div style="position:relative; margin-top: -13%; margin-left: 40%; font-size: 100%; background: white; text-align: center; width: 100px;"&gt;Data&lt;/div&gt;
+&lt;div style="position:relative; margin-top: -14%; margin-left: 45%; font-size: 100%; background: white; text-align: center; width: 150px;"&gt;Aesthetics, geometries, statistics,.....&lt;/div&gt;
+&lt;div style="position:relative; margin-top: -12%; margin-left: 52%; font-size: 100%; background: white; text-align: center; width: 100px;"&gt;Theme&lt;/div&gt;
+
+---
+background-image: url("images/bigdata.png"), url("images/3dgraph.png"),url("images/insight.png")
+background-position: 10% 50%, 60% 50%, 90% 50%
+background-size: 30%, 30%, 15%
+## Why adding *interactivity* to data visualisations?  &lt;svg viewBox="0 0 384 512" style="height:1em;display:inline-block;fill:#561a34;position:fixed;top:38;right:50;" xmlns="http://www.w3.org/2000/svg"&gt;  &lt;path d="M202.021 0C122.202 0 70.503 32.703 29.914 91.026c-7.363 10.58-5.093 25.086 5.178 32.874l43.138 32.709c10.373 7.865 25.132 6.026 33.253-4.148 25.049-31.381 43.63-49.449 82.757-49.449 30.764 0 68.816 19.799 68.816 49.631 0 22.552-18.617 34.134-48.993 51.164-35.423 19.86-82.299 44.576-82.299 106.405V320c0 13.255 10.745 24 24 24h72.471c13.255 0 24-10.745 24-24v-5.773c0-42.86 125.268-44.645 125.268-160.627C377.504 66.256 286.902 0 202.021 0zM192 373.459c-38.196 0-69.271 31.075-69.271 69.271 0 38.195 31.075 69.27 69.271 69.27s69.271-31.075 69.271-69.271-31.075-69.27-69.271-69.27z"&gt;&lt;/path&gt;&lt;/svg&gt;
+
+--
+&lt;img src = "images/circle.png" style = "width: 40%; position: relative; transform: rotate(90deg); margin-top: 7%; margin-left: 68%;"&gt;&lt;/img&gt;
+
+---
+class: hide_logo
+background-image: url("images/gtrends.png")
+background-position: 50% 50%
+background-size: 80%
+
+&lt;a href = "https://www.internetlivestats.com/google-search-statistics/"&gt;&lt;img src = "images/gsearch.png" style = "width: 40%; position: relative; margin-top: -2%; margin-left: 70%;"&gt;&lt;/img&gt;&lt;/a&gt;
+
+
+.footnote[.large[[https://trends.google.com/trends/?geo=ZA](https://trends.google.com/trends/?geo=ZA)]]
+
+???
+dynamic data (very rapid change: ~40000 search/second)
+large quantities
+different interests (content, geolocation,...)
+
+---
+class: hide_logo
+background-image: url("images/3dcat.png"), url("images/3dnum.png"), url("images/arrow_3.png")
+background-position: 5% 30%, 90% 30%, 80% 87%
+background-size: 45%, 45%, 8%
+
+
+&lt;div style = "position: relative; padding-top: 53%; left: 75%; font-size: 80%; "&gt;&lt;cite&gt; Luz and Masoodian (2022) &lt;/cite&gt;&lt;/div&gt;
+ 
+
+.footnote[.large[[https://webtoolkit.eu/widgets/graphics-charts/3d-category-chart](https://webtoolkit.eu/widgets/graphics-charts/3d-category-chart) &lt;br/&gt; 
+          [https://webtoolkit.eu/widgets/graphics-charts/3d-numerical-chart](https://webtoolkit.eu/widgets/graphics-charts/3d-numerical-chart)] &lt;br/&gt;&lt;br/&gt;&lt;br/&gt;]
+
+???
+The only way I can really appreciate 3d visualisations (excluding some very simple cases, where patterns are evident...)
+
+An example of 3d visualisations in infectious disease epidemiology (which we don't look at together)
+
+---
+class: hide_logo
+background-image: url("images/perspectives.png")
+background-position: 50% 50%
+background-size: 50%
+
+???
+Insight: A new way of viewing the world that causes us to reexamine existing conventions and challenge the status quo.
+
+---
+class: hide_logo
+background-image: url("images/pubmed.png")
+background-position: 50% 65%
+background-size: 60%
+## Interactive data visualisations are increasingly used in the health sciences...
+
+.footnote[Number of PubMed listed publications including the terms *interactive data visualisation*, by year]
+
+---
+
+class: hide_logo
+background-image: url("images/christie_1.png"),url("images/christie_2.png"), url("images/circle.png"), url("images/results.png")
+background-position: 50% 25%, 50% 65%, 20% 98%, 80% 82%
+background-size: 90%, 90%, 10%, 18%
+## ... and in Public Health 
+
+&lt;a href = "https://public.tableau.com/app/profile/jawad.chishtie/viz/InteractiveVisualizationApplicationsinPopulationHealthandHealthServicesResearch-Jan2005toMarch2019/DataSource"&gt;&lt;img src = "images/tableau.png" style = "width: 20%; position: relative; margin-top: 43%; margin-left: 73%;"&gt;&lt;/img&gt;&lt;/a&gt;
+
+.footnote[.scriptsize[&lt;cite&gt;Chishtie, Bielska, Barrera, Marchand, and Imran (2022)&lt;/cite&gt;]]
+ 
+---
+class: hide_logo
+background-image: url("images/IHME.png")
+background-position: 50% 30%
+background-size: 80%
+
+.footnote[[https://www.healthdata.org/data-tools-practices/interactive-data-visuals](https://www.healthdata.org/data-tools-practices/interactive-data-visuals)]
+
+---
+class: hide_logo
+background-image: url("images/ward.png"), url("images/liere.png"),url("images/mdpi.png")
+background-position: 10% 50%, 50% 50%, 90% 50%
+background-size: 25%, 25%, 25%
+## Some general references:
+
+.footnote[&lt;cite&gt; Ward, Grinstein, and Keim (2010) ; Ebert and Weber (2018) ; Liere, Adriaansen, and Zudilova-Seinstra (2009)&lt;/cite&gt;         ]
+
+---
+class: hide_logo
+background-image: url("images/gcharts.png"), url("images/tableaui.png"),url("images/powerbi.png"),url("images/tableau.png"), url("images/infogram.png"),url("images/rawgraphs.png")
+background-position: 10% 25%, 50% 25%, 90% 25%, 10% 70%, 50% 70%, 90% 70%
+background-size: 25%, 25%, 25%, 25%, 25%, 25%
+## Building Interactive visualisations: tools 
+
+.footnote[
+[https://www.forbes.com/advisor/business/software/best-data-visualization-tools/](https://www.forbes.com/advisor/business/software/best-data-visualization-tools/)&lt;br/&gt;
+[https://www.wordstream.com/blog/ws/2016/09/29/data-visualization-tools](https://www.wordstream.com/blog/ws/2016/09/29/data-visualization-tools)&lt;/br&gt;
+[https://www.intellspot.com/open-source-data-visualization/](https://www.intellspot.com/open-source-data-visualization/)&lt;br/&gt;
+[https://solutionsreview.com/business-intelligence/the-ultimate-list-of-open-source-and-free-data-visualization-tools/](https://solutionsreview.com/business-intelligence/the-ultimate-list-of-open-source-and-free-data-visualization-tools/)
+]
+
+???
+Many tools, with different characteristics:
+- web applications
+- desktop software
+- libraries
+- integration with otehr apps
+- element of data analysistcs
+- machine learning
+- free and expensive (subscriptions)
+- open socurce and commercial
+
+---
+class: hide_logo 
+background-image: url("images/data.png"),url("images/gears.gif"),url("images/visual.png"),url("images/arrow_2.png"),url("images/arrow_2.png"),url("images/links_1.png"),url("images/users.png")
+background-position: 10% 90%, 25% 50%, 50% 20%,37% 27%,18% 66%, 50% 71%,85% 71%
+background-size: 10%,20%,15%, 6%,6%,50%,10%
+
+--
+&lt;img src = "images/elements.png" style = "width: 100%; position: relative; margin-top: 0%; margin-left: -5%;"&gt;&lt;/img&gt;
+
+???
+
+All share the same elements (mor or less 'buried' into the system and visible to the users)
+
+We a place to store /retrieve the data
+We need a "tool" to process the data
+We need an interface to visualise the data
+We need an interface to allow users to "interact" with the system and modify one or more of tehse emelents (data, processing, visualisation)
+
+---
+class: hide_logo
+background-image: url("images/typing.png")
+background-position: 50% 50%
+background-size: 50%
+
+---
+class: hide_logo
+background-image: url("images/ofg_1.png")
+background-position: 50% 50%
+background-size: 60%
+## Example 1: the *old faithful geyser* app 
+
+--
+&lt;img src = "images/ofg_2.png" style = "width: 50%; position: relative; margin-top: 10%; margin-left: 25%;"&gt;&lt;/img&gt;
+
+---
+class: hide_logo
+.scroll-output[
+
+
+```r
+library(shiny)
+
+ui &lt;- fluidPage(
+
+    # Application title
+    titlePanel("Old Faithful Geyser Data"),
+
+    # Sidebar with a slider input for number of bins 
+    sidebarLayout(
+        sidebarPanel(
+            sliderInput("bins",
+                        "Number of bins:",
+                        min = 1,
+                        max = 50,
+                        value = 30)
+        ),
+
+        # Show a plot of the generated distribution
+        mainPanel(
+           plotOutput("distPlot")
+        )
+    )
+)
+
+server &lt;- function(input, output) {
+
+    output$distPlot &lt;- renderPlot({
+        # generate bins based on input$bins from ui.R
+        x    &lt;- faithful[, 2]
+        bins &lt;- seq(min(x), max(x), length.out = input$bins + 1)
+
+        # draw the histogram with the specified number of bins
+        hist(x, breaks = bins, col = 'darkgray', border = 'white',
+             xlab = 'Waiting time to next eruption (in mins)',
+             main = 'Histogram of waiting times')
+    })
+}
+
+shinyApp(ui = ui, server = server)
+```
+
+]
+
+???
+ui (user interface): visualisation, interactivity (input/output)
+server: processing 
+
+Where are the data? in this case are provided by the R environment itself (as the ofg is a standard R dataset)
+
+---
+class: hide_logo
+background-image: url("images/banner.png")
+background-position: 98% 98%
+background-size: 25%
+## Example 2: A dashboard for *Cardiovascular Risk Factors in SA* 
+
+.footnotesize[
+
+```r
+load("data/cvd.RData")
+head(DATA)
+```
+
+```
+  year      province geotype    sex agecat      bmi         bmicat      sbp
+1 2017  Western Cape   Rural   Male  55-59 18.73622 Healthy weight 110.5000
+2 2008 Northern Cape   Urban   Male  60-64 23.04328 Healthy weight 155.5000
+3 2007  Eastern Cape   Rural Female  60-64 43.25259    Obesity III 213.0000
+4 2010 Northern Cape   Rural   Male  30-34 19.26717 Healthy weight  97.5000
+5 2017       Limpopo   Rural Female  35-39 41.05962    Obesity III 122.5000
+6 2004 KwaZulu Natal   Urban Female  35-39 24.85624 Healthy weight 115.3333
+        dbp    cvdrisk
+1  73.00000 11.0800103
+2 100.00000 30.1972010
+3  94.66666 84.1130210
+4  63.50000  0.9863426
+5  97.50000  2.3223061
+6  77.66666  1.4508358
+```
+]
+
+.pull-left[
+
+```r
+nrow(DATA)
+```
+
+```
+[1] 10000
+```
+
+```r
+unique(DATA$year)
+```
+
+```
+ [1] 2017 2008 2007 2010 2004 2015 2012 1998 2016 2014
+```
+]
+---
+class: hide_logo
+background-image: url("images/app.png")
+background-position: 50% 50%
+background-size: 90%
+
+---
+class: hide_logo
+background-image: url("images/shiny.png"), url("images/ggplot2.png"), url("images/plotly.png"), url("images/shinydash.png"), url("images/arrow_3.png") 
+background-position: 5% 50%,40% 15%, 68% 80%, 95% 20%,10% 90%
+background-size: 25%,25%,18%,25%,10%
+
+.footnote[[https://rstudio.github.io/shinydashboard/index.html](https://rstudio.github.io/shinydashboard/index.html)]
+
+---
+class: hide_logo
+## Setup
+
+.center[*Install packages*]
+
+
+```r
+install.packages(c("shiny","shinydashboard","ggplot2","plotly"))
+```
+
+.center[*Create three files .R*]
+
+
+```r
+global.R --&gt; code to be execute when the app starts 
+server.R --&gt; server
+ui.R --&gt; user interface
+```
+
+---
+class: hide_logo
+
+.center[*global.r*]
+
+
+```r
+library(shiny)
+library(dplyr)
+library(ggplot2)
+library(shinydashboard)
+library(plotly)
+
+load("cvd.RDATA")
+```
+
+class: hide_logo
+
+.center[*ui.r*]
+
+
+```r
+dashboardPage(
+  dashboardHeader(),
+  dashboardSidebar(),
+  dashboardBody()
+```
+
+.center[*server.r*]
+
+
+```r
+function(input, output) {
+```
+
+---
+class: hide_logo
+background-image: url("images/rstudio.png")
+background-position: 50% 50%
+background-size: 30%
+
+
+.footnote[.large[
+&lt;img src = "images/github.png" width = "85"&gt;&lt;/img&gt; &lt;br/&gt;&lt;br/&gt;
+Code of the example on GitHub (*/code/cvd*): &lt;br/&gt; 
+&lt;a href = "https://github.com/AnnibaleCois/InteractiveVisualisations"&gt;https://github.com/AnnibaleCois/InteractiveVisualisations&lt;/a&gt;
+&lt;br/&gt;
+Direct download links: &lt;a href="code/cvd/global.R" download&gt;global.R&lt;/a&gt;, &lt;a href="code/cvd/ui.R" download&gt;ui.R&lt;/a&gt;, &lt;a href="code/cvd/server.R" download&gt;server.R&lt;/a&gt;, &lt;a href="code/cvd/cvd.RDATA" download&gt;cvd.RDATA&lt;/a&gt;
+]
+]
+---
+class: hide_logo
+## User Interface (ui.R)
+
+.scroll-output[
+
+```r
+dashboardPage(
+  dashboardHeader(title = "Cardiovascular Risk Dashboard"),
+  dashboardSidebar(
+    sliderInput(
+      inputId = "riskThreshold", 
+      label = "Risk Threshold",
+      min = 0, 
+      max = 50, 
+      value = 3, 
+      step = 1
+    ),
+    checkboxGroupInput(
+      inputId = "geotype",
+      label = "Geotype",
+      inline = TRUE,
+      choices = c("Urban","Rural"),
+      selected = c("Urban","Rural")
+    ),
+    checkboxGroupInput(
+      inputId = "sex",
+      label = "Sex",
+      inline = TRUE,
+      choices = unique(DATA$sex),
+      selected = c("Male","Female")
+    ),
+    checkboxGroupInput(
+      inputId = "agecat",
+      label = "Age Groups",
+      inline = TRUE,
+      choices = unique(DATA$agecat),
+      selected = c("50-54")
+    ),
+    radioButtons(
+      inputId = "year",
+      label = "Year",
+      inline = TRUE,
+      choices = unique(DATA$year),
+      selected = 2016
+    ), 
+    sidebarMenu(
+      menuItem("Dashboard", tabName = "dashboard"),
+      menuItem("Raw data", tabName = "rawdata")
+    )
+  ),
+  dashboardBody(
+    tabItems(
+      tabItem("dashboard",
+        fluidRow(
+          valueBoxOutput("ssize"),
+          valueBoxOutput("cvdrisk"),
+          valueBoxOutput("excessrisk")
+        ),
+        fluidRow(
+          box(
+            width = 8, status = "info", solidHeader = TRUE,
+            title = "Cardiovascular risk, by province",
+            plotlyOutput("riskPlot", width = "100%", height = 600)
+            #plotOutput("riskPlot", width = "100%", height = 600)
+          ),
+          box(
+            width = 4, status = "info",
+            title = "Risk factors, averages",
+            tableOutput("riskTable")
+          )
+        )
+      ),
+      tabItem("rawdata",
+        numericInput("maxrows", "Rows to show", 25),
+        verbatimTextOutput("rawtable"),
+        downloadButton("downloadCsv", "Download as CSV")
+      )
+    )
+  )
+)
+```
+]
+
+---
+class: hide_logo
+## Server (server.R)
+
+.scroll-output[
+
+```r
+function(input, output) {
+
+# Filter data according to inputs
+  
+  data_filtered &lt;- reactive({
+    subset(DATA,
+           sex %in% input$sex &amp;
+           agecat %in% input$agecat &amp;
+           year %in% input$year &amp;
+           geotype %in% input$geotype)  
+  })
+  
+# Recalculate outputs every time an input changes  
+  
+    # Sampe size 
+  
+  rowCount &lt;- reactive({
+    nrow(data_filtered())
+  })
+  
+    output$ssize &lt;- renderValueBox({
+    valueBox(
+      value = rowCount(),
+      subtitle = "Sample size",
+      icon = icon("database"),
+      color = "aqua"
+    )
+  })
+  
+    # Average CVD risk 
+    
+  avgRisk &lt;- reactive({
+    paste(round(mean(data_filtered()$cvdrisk, na.rm = TRUE),1),"%", sep = "")
+  })
+  
+  output$cvdrisk &lt;- renderValueBox({
+    valueBox(
+      value = avgRisk() ,
+      subtitle = "Average CVD risk",
+      icon = icon("heart-crack"),
+      color = "red"
+    )
+  })
+  
+   # Percentage above risk threshold
+ 
+  excRisk &lt;- reactive({
+    paste(round(mean(data_filtered()$cvdrisk &gt; input$riskThreshold, na.rm = TRUE)*100,1),"%", sep = "")
+  })
+  
+  output$excessrisk &lt;- renderValueBox({
+    valueBox(
+      excRisk(),
+      "Risk above threshold",
+      icon = icon("percent"),
+      color = "yellow"
+    )
+  })
+  
+  
+  # Bar chart with provincial averages
+
+  output$riskPlot &lt;- renderPlotly({
+    #output$riskPlot &lt;- renderPlot({
+    data &lt;- data_filtered()
+    if (nrow(data) == 0)
+      return()
+    data_province &lt;- aggregate(data$cvdrisk, by = list(data$province), FUN = mean)
+    data_province &lt;- rename(data_province, Province = Group.1, cvdrisk = x ) 
+    
+    ggplot(data_province) +
+      aes(x = Province, y = cvdrisk, fill = Province) +
+      geom_bar(stat = "identity") +
+      theme(legend.position = "none")
+    
+    })
+
+  # Table with average levels of risk factors
+  
+  output$riskTable &lt;- renderTable({
+    data &lt;- data_filtered()
+    if (nrow(data) == 0)
+      return()
+    data_province &lt;- aggregate(data[,c("bmi","sbp","dbp")], by = list(data$province), FUN = mean) 
+    data_province &lt;- rename(data_province, Province = Group.1) 
+    data_province
+  }, digits = 1)
+  
+  
+  # Raw data table 
+  
+   output$rawtable &lt;- renderPrint({
+    orig &lt;- options(width = 1000)
+    print(tail(data_filtered(), input$maxrows), row.names = FALSE)
+    options(orig)
+  }) 
+  
+  # Download data 
+  
+   output$downloadCsv &lt;- downloadHandler(
+    filename = "data.csv",
+    content = function(file) {
+      write.csv(data_filtered(), file)
+    },
+    contentType = "text/csv"
+  )
+}
+```
+]
+
+---
+class: hide_logo
+background-image: url("images/app.png")
+background-position: 50% 50%
+background-size: 90%
+
+---
+class: hide_logo
+background-image: url("images/deploy.png")
+background-position: 50% 60%
+background-size: 80%
+## Deploying your app
+
+--
+&lt;img src = "images/circle.png" style = "width: 40%; position: relative; margin-top: -2%; margin-left: 0%;"&gt;&lt;/img&gt;
+
+.footnote[.large[https://www.shinyapps.io/]]
+
+---
+background-image: url("images/deploy_1.png")
+background-position: 50% 50%
+background-size: 90%
+
+--
+&lt;img src = "images/deploy_2.png" style = "width: 60%; position: relative; margin-top: 12%; margin-left: 20%;"&gt;&lt;/img&gt;
+
+
+---
+
+```r
+#install.packages(c("rmarkdown","rsconnect")
+
+library(rsconnect)
+library(rmarkdown)
+
+# Set account (Only once)
+rsconnect::setAccountInfo(name = 'sacra2',
+			  token = '&lt;token&gt;',
+			  secret = '&lt;secret&gt;')
+
+# Deploy new version
+    
+rsconnect::deployApp('Alcohol', account = "sacra2")
+```
+
+--
+.content-box-yellow[
+.center[
+.large[
+https://your-account-name.shinyapps.io/your-directory-name
+]
+]
+]  
+--
+&lt;br/&gt;
+  
+.content-box-darkorange[
+.center[
+.large[
+https://sacra2.shinyapps.io/alcohol/
+]
+]
+]
+
+---
+class: hide_logo
+background-image: url("images/reading.png")
+background-position: 90% 90%
+background-size: 20%
+## References  
+
+.scriptsize[
+Chishtie, J., I. A. Bielska, A. Barrera, et al. (2022). "Interactive
+Visualization Applications in Population Health and Health Services
+Research: Systematic Scoping Review". EN. In: _Journal of Medical
+Internet Research_ 24.2. Company: Journal of Medical Internet Research
+Distributor: Journal of Medical Internet Research Institution: Journal
+of Medical Internet Research Label: Journal of Medical Internet
+Research Publisher: JMIR Publications Inc., Toronto, Canada, p. e27534.
+DOI: [10.2196/27534](https://doi.org/10.2196%2F27534). URL:
+[https://www.jmir.org/2022/2/e27534](https://www.jmir.org/2022/2/e27534)
+(visited on Oct. 31, 2022).
+
+Ebert, A. and G. H. Weber, ed. (2018). _Scalable Interactive
+Visualization_. Eng. MDPI. ISBN: 3-03842-804-3.
+
+Liere, R., T. Adriaansen, and E. Zudilova-Seinstra (2009). _Trends in
+interactive visualization: state-of-the-art survey_. Springer.
+
+Luz, S. and M. Masoodian (2022). "Exploring Environmental and
+Geographical Factors Influencing the Spread of Infectious Diseases with
+Interactive Maps". In: _Sustainability_ 14.16, p. 9990.
+
+Ola, O. and K. Sedig (2016). "Beyond simple charts: Design of
+visualizations for big health data." Eng. In: _Online J Public Health
+Inform_ 8.3, p. e195. ISSN: 1947-2579. DOI:
+[10.5210/ojphi.v8i3.7100](https://doi.org/10.5210%2Fojphi.v8i3.7100).
+
+Ward, M. O., G. Grinstein, and D. Keim (2010). _Interactive data
+visualization: foundations, techniques, and applications_. AK
+Peters/CRC Press.
+]
+
+---
+class: su-white
+&lt;br/&gt;&lt;br/&gt;
+
+.font200[
+&lt;p style ="font-size:200%; margin-bottom: -10px; margin-left: -5px;"&gt;Thank You!&lt;/p&gt;
+[ acois@sun.ac.za](mailto:acois@sun.ac.za)
+]
+&lt;br/&gt;&lt;br/&gt;
+
+&lt;div style = "text-align: right; position: fixed; right: 100px;"&gt;
+
+&lt;img src = "images/github.png" width = "85"&gt;&lt;/img&gt; &lt;br/&gt;&lt;br/&gt;
+The rmarkdown code of this presentation is available on GitHub: &lt;br/&gt; 
+&lt;a href = "https://github.com/AnnibaleCois/InteractiveVisualisations"&gt;https://github.com/AnnibaleCois/InteractiveVisualisations&lt;/a&gt; 
+
+&lt;/div&gt;
+
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script src="assets/remark-zoom.js"></script>
+<script src="assets/cols_macro.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"ratio": "16:9",
+"countIncrementalSlides": true,
+"navigation": {
+"scroll": false
+}
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
