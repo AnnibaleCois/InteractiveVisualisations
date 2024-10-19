@@ -3,12 +3,12 @@
   <head>
     <title>Interactive Visualisations</title>
     <meta charset="utf-8" />
-    <meta name="author" content="Department of Global Health, Stellenbosch University &amp;   School of Public Health, University of Cape Town  Contacts: acois@sun.ac.za ORCID: 0000-0002-7014-6510 Web of Science: AAK-8603-2020" />
-    <script src="index_files/header-attrs-2.20.1/header-attrs.js"></script>
+    <meta name="author" content="Burden of Disease Research Unit, South African Medical Research Council &amp;   School of Public Health, University of Cape Town  Email: annibale.cois@mrc.ac.za ORCID: 0000-0002-7014-6510 Web of Science: AAK-8603-2020     https://annibalecois.github.io" />
+    <script src="index_files/header-attrs-2.25/header-attrs.js"></script>
     <link href="index_files/remark-css-0.0.1/default.css" rel="stylesheet" />
     <link href="index_files/tile-view-0.2.6/tile-view.css" rel="stylesheet" />
     <script src="index_files/tile-view-0.2.6/tile-view.js"></script>
-    <script type="application/json" id="xaringanExtra-editable-docid">{"id":"x8b5e1dece4e49768a2dd7a84716fd10","expires":14}</script>
+    <script type="application/json" id="xaringanExtra-editable-docid">{"id":"ecc0e14b92194479b5d2fd2530c60442","expires":14}</script>
     <script src="index_files/himalaya-1.1.0/himalaya.js"></script>
     <script src="index_files/js-cookie-3.0.0/js.cookie.js"></script>
     <link href="index_files/editable-0.2.6/editable.css" rel="stylesheet" />
@@ -19,8 +19,8 @@
     <script>document.addEventListener('DOMContentLoaded', function() { window.xeScribble = new Scribble({"pen_color":["#FF0000"],"pen_size":3,"eraser_size":30,"palette":[]}) })</script>
     <script src="index_files/xaringanExtra-webcam-0.0.1/webcam.js"></script>
     <script id="xaringanExtra-webcam-options" type="application/json">{"width":"200","height":"200","margin":"1em"}</script>
-    <link href="index_files/panelset-0.2.6/panelset.css" rel="stylesheet" />
-    <script src="index_files/panelset-0.2.6/panelset.js"></script>
+    <link href="index_files/panelset-0.3.0/panelset.css" rel="stylesheet" />
+    <script src="index_files/panelset-0.3.0/panelset.js"></script>
     <script type="text/x-mathjax-config">
       MathJax.Hub.Config({
         TeX: { equationNumbers: { autoNumber: "AMS" } },
@@ -35,7 +35,7 @@
     </style>
     <link rel="stylesheet" href="assets/sydney-fonts.css" type="text/css" />
     <link rel="stylesheet" href="assets/sydney.css" type="text/css" />
-    <link rel="stylesheet" href="assets/stellenbosch.css" type="text/css" />
+    <link rel="stylesheet" href="assets/samrc.css" type="text/css" />
   </head>
   <body>
     <textarea id="source">
@@ -45,10 +45,10 @@ class: center, middle, inverse, title-slide
 # Interactive Visualisations
 ]
 .subtitle[
-## Annibale Cois
+## Annibale Cois, MEng, MPH, PhD
 ]
 .author[
-### <span style="font-size: 80%;">Department of Global Health, Stellenbosch University &amp; <br/> School of Public Health, University of Cape Town<br/><br/>Contacts: <a href="mailto:acois@sun.ac.za" class="email">acois@sun.ac.za</a><br/>ORCID: <a href="https://orcid.org/0000-0002-7014-6510">0000-0002-7014-6510</a><br/>Web of Science: <a href="https://www.webofscience.com/wos/author/rid/AAK-8603-2020">AAK-8603-2020</a></span>
+### <span style="font-size: 80%;">Burden of Disease Research Unit, South African Medical Research Council &amp; <br/> School of Public Health, University of Cape Town<br/><br/>Email: <a href="mailto:annibale.cois@mrc.ac.za" class="email">annibale.cois@mrc.ac.za</a><br/>ORCID: <a href="https://orcid.org/0000-0002-7014-6510">0000-0002-7014-6510</a><br/>Web of Science: <a href="https://www.webofscience.com/wos/author/rid/AAK-8603-2020">AAK-8603-2020</a><br/><br/><br/><img src = 'assets/anniweb.png' width = '50'></img><br/> <a href="https://annibalecois.github.io">https://annibalecois.github.io</a></span>
 ]
 .date[
 ### <span style="color: #A88B53; position: relative; top: 150px;"></span>
@@ -97,7 +97,7 @@ bottom:1em;left:60px;
 })()</script>
 </div>
 
-## Outline &lt;svg viewBox="0 0 512 512" style="height:1em;display:inline-block;fill:#561a34;position:fixed;top:38;right:50;" xmlns="http://www.w3.org/2000/svg"&gt;  &lt;path d="M80 368H16a16 16 0 0 0-16 16v64a16 16 0 0 0 16 16h64a16 16 0 0 0 16-16v-64a16 16 0 0 0-16-16zm0-320H16A16 16 0 0 0 0 64v64a16 16 0 0 0 16 16h64a16 16 0 0 0 16-16V64a16 16 0 0 0-16-16zm0 160H16a16 16 0 0 0-16 16v64a16 16 0 0 0 16 16h64a16 16 0 0 0 16-16v-64a16 16 0 0 0-16-16zm416 176H176a16 16 0 0 0-16 16v32a16 16 0 0 0 16 16h320a16 16 0 0 0 16-16v-32a16 16 0 0 0-16-16zm0-320H176a16 16 0 0 0-16 16v32a16 16 0 0 0 16 16h320a16 16 0 0 0 16-16V80a16 16 0 0 0-16-16zm0 160H176a16 16 0 0 0-16 16v32a16 16 0 0 0 16 16h320a16 16 0 0 0 16-16v-32a16 16 0 0 0-16-16z"&gt;&lt;/path&gt;&lt;/svg&gt;
+## Outline &lt;svg viewBox="0 0 512 512" style="height:1em;display:inline-block;fill:#000000;position:fixed;top:38;right:50;" xmlns="http://www.w3.org/2000/svg"&gt;  &lt;path d="M80 368H16a16 16 0 0 0-16 16v64a16 16 0 0 0 16 16h64a16 16 0 0 0 16-16v-64a16 16 0 0 0-16-16zm0-320H16A16 16 0 0 0 0 64v64a16 16 0 0 0 16 16h64a16 16 0 0 0 16-16V64a16 16 0 0 0-16-16zm0 160H16a16 16 0 0 0-16 16v64a16 16 0 0 0 16 16h64a16 16 0 0 0 16-16v-64a16 16 0 0 0-16-16zm416 176H176a16 16 0 0 0-16 16v32a16 16 0 0 0 16 16h320a16 16 0 0 0 16-16v-32a16 16 0 0 0-16-16zm0-320H176a16 16 0 0 0-16 16v32a16 16 0 0 0 16 16h320a16 16 0 0 0 16-16V80a16 16 0 0 0-16-16zm0 160H176a16 16 0 0 0-16 16v32a16 16 0 0 0 16 16h320a16 16 0 0 0 16-16v-32a16 16 0 0 0-16-16z"&gt;&lt;/path&gt;&lt;/svg&gt;
 
 --
 .content-box-shift1[
@@ -117,7 +117,7 @@ What is a IV, its defining characteristics and elements
 Building interactive visualisations: what do we need (a 'high level' overview)
 
 ---
-## What is an “interactive visualisation”?  &lt;svg viewBox="0 0 384 512" style="height:1em;display:inline-block;fill:#561a34;position:fixed;top:38;right:50;" xmlns="http://www.w3.org/2000/svg"&gt;  &lt;path d="M202.021 0C122.202 0 70.503 32.703 29.914 91.026c-7.363 10.58-5.093 25.086 5.178 32.874l43.138 32.709c10.373 7.865 25.132 6.026 33.253-4.148 25.049-31.381 43.63-49.449 82.757-49.449 30.764 0 68.816 19.799 68.816 49.631 0 22.552-18.617 34.134-48.993 51.164-35.423 19.86-82.299 44.576-82.299 106.405V320c0 13.255 10.745 24 24 24h72.471c13.255 0 24-10.745 24-24v-5.773c0-42.86 125.268-44.645 125.268-160.627C377.504 66.256 286.902 0 202.021 0zM192 373.459c-38.196 0-69.271 31.075-69.271 69.271 0 38.195 31.075 69.27 69.271 69.27s69.271-31.075 69.271-69.271-31.075-69.27-69.271-69.27z"&gt;&lt;/path&gt;&lt;/svg&gt;
+## What is an “interactive visualisation”?  &lt;svg viewBox="0 0 384 512" style="height:1em;display:inline-block;fill:#000000;position:fixed;top:38;right:50;" xmlns="http://www.w3.org/2000/svg"&gt;  &lt;path d="M202.021 0C122.202 0 70.503 32.703 29.914 91.026c-7.363 10.58-5.093 25.086 5.178 32.874l43.138 32.709c10.373 7.865 25.132 6.026 33.253-4.148 25.049-31.381 43.63-49.449 82.757-49.449 30.764 0 68.816 19.799 68.816 49.631 0 22.552-18.617 34.134-48.993 51.164-35.423 19.86-82.299 44.576-82.299 106.405V320c0 13.255 10.745 24 24 24h72.471c13.255 0 24-10.745 24-24v-5.773c0-42.86 125.268-44.645 125.268-160.627C377.504 66.256 286.902 0 202.021 0zM192 373.459c-38.196 0-69.271 31.075-69.271 69.271 0 38.195 31.075 69.27 69.271 69.27s69.271-31.075 69.271-69.271-31.075-69.27-69.271-69.27z"&gt;&lt;/path&gt;&lt;/svg&gt;
 
 &lt;br/&gt;&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;
 ##.center[*"a computational tool that store, process and visually represent data to facilitate interactive exploration"*]
@@ -151,10 +151,10 @@ In other words, they interact with each elements of a visualisation, as defined 
 &lt;div style="position:relative; margin-top: -12%; margin-left: 52%; font-size: 100%; background: white; text-align: center; width: 100px;"&gt;Theme&lt;/div&gt;
 
 ---
-background-image: url("images/bigdata.png"), url("images/3dgraph.png"),url("images/insight.png")
+background-image: url("images/bigdata.png"), url("images/3-r-animated-cube.gif"),url("images/insight.png")
 background-position: 10% 50%, 60% 50%, 90% 50%
 background-size: 30%, 30%, 15%
-## Why adding *interactivity* to data visualisations?  &lt;svg viewBox="0 0 384 512" style="height:1em;display:inline-block;fill:#561a34;position:fixed;top:38;right:50;" xmlns="http://www.w3.org/2000/svg"&gt;  &lt;path d="M202.021 0C122.202 0 70.503 32.703 29.914 91.026c-7.363 10.58-5.093 25.086 5.178 32.874l43.138 32.709c10.373 7.865 25.132 6.026 33.253-4.148 25.049-31.381 43.63-49.449 82.757-49.449 30.764 0 68.816 19.799 68.816 49.631 0 22.552-18.617 34.134-48.993 51.164-35.423 19.86-82.299 44.576-82.299 106.405V320c0 13.255 10.745 24 24 24h72.471c13.255 0 24-10.745 24-24v-5.773c0-42.86 125.268-44.645 125.268-160.627C377.504 66.256 286.902 0 202.021 0zM192 373.459c-38.196 0-69.271 31.075-69.271 69.271 0 38.195 31.075 69.27 69.271 69.27s69.271-31.075 69.271-69.271-31.075-69.27-69.271-69.27z"&gt;&lt;/path&gt;&lt;/svg&gt;
+## Why adding *interactivity* to data visualisations?  &lt;svg viewBox="0 0 384 512" style="height:1em;display:inline-block;fill:#000000;position:fixed;top:38;right:50;" xmlns="http://www.w3.org/2000/svg"&gt;  &lt;path d="M202.021 0C122.202 0 70.503 32.703 29.914 91.026c-7.363 10.58-5.093 25.086 5.178 32.874l43.138 32.709c10.373 7.865 25.132 6.026 33.253-4.148 25.049-31.381 43.63-49.449 82.757-49.449 30.764 0 68.816 19.799 68.816 49.631 0 22.552-18.617 34.134-48.993 51.164-35.423 19.86-82.299 44.576-82.299 106.405V320c0 13.255 10.745 24 24 24h72.471c13.255 0 24-10.745 24-24v-5.773c0-42.86 125.268-44.645 125.268-160.627C377.504 66.256 286.902 0 202.021 0zM192 373.459c-38.196 0-69.271 31.075-69.271 69.271 0 38.195 31.075 69.27 69.271 69.27s69.271-31.075 69.271-69.271-31.075-69.27-69.271-69.27z"&gt;&lt;/path&gt;&lt;/svg&gt;
 
 --
 &lt;img src = "images/circle.png" style = "width: 40%; position: relative; transform: rotate(90deg); margin-top: 7%; margin-left: 68%;"&gt;&lt;/img&gt;
@@ -221,7 +221,7 @@ background-size: 90%, 90%, 10%, 18%
 
 &lt;a href = "https://public.tableau.com/app/profile/jawad.chishtie/viz/InteractiveVisualizationApplicationsinPopulationHealthandHealthServicesResearch-Jan2005toMarch2019/DataSource"&gt;&lt;img src = "images/tableau.png" style = "width: 20%; position: relative; margin-top: 43%; margin-left: 73%;"&gt;&lt;/img&gt;&lt;/a&gt;
 
-.footnote[.scriptsize[&lt;cite&gt;Chishtie, Bielska, Barrera, Marchand, and Imran (2022)&lt;/cite&gt;]]
+.footnote[.scriptsize[&lt;cite&gt;Chishtie, Bielska, Barrera et al. (2022)&lt;/cite&gt;]]
  
 ---
 class: hide_logo
@@ -304,7 +304,7 @@ class: hide_logo
 .scroll-output[
 
 
-```r
+``` r
 library(shiny)
 
 ui &lt;- fluidPage(
@@ -363,32 +363,25 @@ background-size: 25%
 
 .footnotesize[
 
-```r
+``` r
 load("data/cvd.RData")
 head(DATA)
 ```
 
 ```
-  year      province geotype    sex agecat      bmi         bmicat      sbp
-1 2017  Western Cape   Rural   Male  55-59 18.73622 Healthy weight 110.5000
-2 2008 Northern Cape   Urban   Male  60-64 23.04328 Healthy weight 155.5000
-3 2007  Eastern Cape   Rural Female  60-64 43.25259    Obesity III 213.0000
-4 2010 Northern Cape   Rural   Male  30-34 19.26717 Healthy weight  97.5000
-5 2017       Limpopo   Rural Female  35-39 41.05962    Obesity III 122.5000
-6 2004 KwaZulu Natal   Urban Female  35-39 24.85624 Healthy weight 115.3333
-        dbp    cvdrisk
-1  73.00000 11.0800103
-2 100.00000 30.1972010
-3  94.66666 84.1130210
-4  63.50000  0.9863426
-5  97.50000  2.3223061
-6  77.66666  1.4508358
+  year      province geotype    sex agecat      bmi         bmicat      sbp       dbp    cvdrisk
+1 2017  Western Cape   Rural   Male  55-59 18.73622 Healthy weight 110.5000  73.00000 11.0800103
+2 2008 Northern Cape   Urban   Male  60-64 23.04328 Healthy weight 155.5000 100.00000 30.1972010
+3 2007  Eastern Cape   Rural Female  60-64 43.25259    Obesity III 213.0000  94.66666 84.1130210
+4 2010 Northern Cape   Rural   Male  30-34 19.26717 Healthy weight  97.5000  63.50000  0.9863426
+5 2017       Limpopo   Rural Female  35-39 41.05962    Obesity III 122.5000  97.50000  2.3223061
+6 2004 KwaZulu Natal   Urban Female  35-39 24.85624 Healthy weight 115.3333  77.66666  1.4508358
 ```
 ]
 
 .pull-left[
 
-```r
+``` r
 nrow(DATA)
 ```
 
@@ -396,7 +389,7 @@ nrow(DATA)
 [1] 10000
 ```
 
-```r
+``` r
 unique(DATA$year)
 ```
 
@@ -425,14 +418,14 @@ class: hide_logo
 .center[*Install packages*]
 
 
-```r
+``` r
 install.packages(c("shiny","shinydashboard","ggplot2","plotly"))
 ```
 
 .center[*Create three files .R*]
 
 
-```r
+``` r
 global.R --&gt; code to be execute when the app starts 
 server.R --&gt; server
 ui.R --&gt; user interface
@@ -444,7 +437,7 @@ class: hide_logo
 .center[*global.r*]
 
 
-```r
+``` r
 library(shiny)
 library(dplyr)
 library(ggplot2)
@@ -459,7 +452,7 @@ class: hide_logo
 .center[*ui.r*]
 
 
-```r
+``` r
 dashboardPage(
   dashboardHeader(),
   dashboardSidebar(),
@@ -469,7 +462,7 @@ dashboardPage(
 .center[*server.r*]
 
 
-```r
+``` r
 function(input, output) {
 ```
 
@@ -494,7 +487,7 @@ class: hide_logo
 
 .scroll-output[
 
-```r
+``` r
 dashboardPage(
   dashboardHeader(title = "Cardiovascular Risk Dashboard"),
   dashboardSidebar(
@@ -578,7 +571,7 @@ class: hide_logo
 
 .scroll-output[
 
-```r
+``` r
 function(input, output) {
 
 # Filter data according to inputs
@@ -718,7 +711,7 @@ background-size: 90%
 
 ---
 
-```r
+``` r
 #install.packages(c("rmarkdown","rsconnect")
 
 library(rsconnect)
@@ -761,44 +754,35 @@ background-size: 20%
 ## References  
 
 .scriptsize[
-Chishtie, J., I. A. Bielska, A. Barrera, et al. (2022). "Interactive
-Visualization Applications in Population Health and Health Services
-Research: Systematic Scoping Review". EN. In: _Journal of Medical
-Internet Research_ 24.2. Company: Journal of Medical Internet Research
-Distributor: Journal of Medical Internet Research Institution: Journal
-of Medical Internet Research Label: Journal of Medical Internet
-Research Publisher: JMIR Publications Inc., Toronto, Canada, p. e27534.
-DOI: [10.2196/27534](https://doi.org/10.2196%2F27534). URL:
-[https://www.jmir.org/2022/2/e27534](https://www.jmir.org/2022/2/e27534)
+Chishtie, J., I. A. Bielska, A. Barrera, et al. (2022). "Interactive Visualization Applications in Population Health and Health
+Services Research: Systematic Scoping Review". EN. In: _Journal of Medical Internet Research_ 24.2. Company: Journal of Medical
+Internet Research Distributor: Journal of Medical Internet Research Institution: Journal of Medical Internet Research Label: Journal
+of Medical Internet Research Publisher: JMIR Publications Inc., Toronto, Canada, p. e27534. DOI:
+[10.2196/27534](https://doi.org/10.2196%2F27534). URL: [https://www.jmir.org/2022/2/e27534](https://www.jmir.org/2022/2/e27534)
 (visited on Oct. 31, 2022).
 
-Ebert, A. and G. H. Weber, ed. (2018). _Scalable Interactive
-Visualization_. Eng. MDPI. ISBN: 3-03842-804-3.
+Ebert, A. and G. H. Weber, ed. (2018). _Scalable Interactive Visualization_. Eng. MDPI. ISBN: 3-03842-804-3.
 
-Liere, R., T. Adriaansen, and E. Zudilova-Seinstra (2009). _Trends in
-interactive visualization: state-of-the-art survey_. Springer.
+Liere, R., T. Adriaansen, and E. Zudilova-Seinstra (2009). _Trends in interactive visualization: state-of-the-art survey_. Springer.
 
-Luz, S. and M. Masoodian (2022). "Exploring Environmental and
-Geographical Factors Influencing the Spread of Infectious Diseases with
+Luz, S. and M. Masoodian (2022). "Exploring Environmental and Geographical Factors Influencing the Spread of Infectious Diseases with
 Interactive Maps". In: _Sustainability_ 14.16, p. 9990.
 
-Ola, O. and K. Sedig (2016). "Beyond simple charts: Design of
-visualizations for big health data." Eng. In: _Online J Public Health
-Inform_ 8.3, p. e195. ISSN: 1947-2579. DOI:
-[10.5210/ojphi.v8i3.7100](https://doi.org/10.5210%2Fojphi.v8i3.7100).
+Ola, O. and K. Sedig (2016). "Beyond simple charts: Design of visualizations for big health data." Eng. In: _Online J Public Health
+Inform_ 8.3, p. e195. ISSN: 1947-2579. DOI: [10.5210/ojphi.v8i3.7100](https://doi.org/10.5210%2Fojphi.v8i3.7100).
 
-Ward, M. O., G. Grinstein, and D. Keim (2010). _Interactive data
-visualization: foundations, techniques, and applications_. AK
+Ward, M. O., G. Grinstein, and D. Keim (2010). _Interactive data visualization: foundations, techniques, and applications_. AK
 Peters/CRC Press.
 ]
 
 ---
-class: su-white
-&lt;br/&gt;&lt;br/&gt;
+class: hide_logo
+background-image: url("assets/samrc_background.png")
+background-position: 50% 50%
+background-size: 100% 100%
 
 .font200[
-&lt;p style ="font-size:200%; margin-bottom: -10px; margin-left: -5px;"&gt;Thank You!&lt;/p&gt;
-[ acois@sun.ac.za](mailto:acois@sun.ac.za)
+&lt;p style ="font-size:200%; margin-bottom: -10px; margin-left: 200px;"&gt;Thank You!&lt;/p&gt;
 ]
 &lt;br/&gt;&lt;br/&gt;
 

@@ -1,11 +1,11 @@
 ---
 title: "Interactive Visualisations"
-subtitle: "Annibale Cois"
-author: "<span style='font-size: 80%;'>Department of Global Health, Stellenbosch University &amp; <br/> School of Public Health, University of Cape Town<br/><br/>Contacts: acois@sun.ac.za<br/>ORCID: [0000-0002-7014-6510](https://orcid.org/0000-0002-7014-6510)<br/>Web of Science: [ AAK-8603-2020](https://www.webofscience.com/wos/author/rid/AAK-8603-2020)</span>" 
+subtitle: "Annibale Cois, MEng, MPH, PhD"
+author: "<span style='font-size: 80%;'>Burden of Disease Research Unit, South African Medical Research Council &amp; <br/> School of Public Health, University of Cape Town<br/><br/>Email: annibale.cois@mrc.ac.za<br/>ORCID: [0000-0002-7014-6510](https://orcid.org/0000-0002-7014-6510)<br/>Web of Science: [ AAK-8603-2020](https://www.webofscience.com/wos/author/rid/AAK-8603-2020)<br/><br/><br/><img src = 'assets/anniweb.png' width = '50'></img><br/> [https://annibalecois.github.io](https://annibalecois.github.io)</span>" 
 date: "<span style = 'color: #A88B53; position: relative; top: 150px;'></span>" 
 output:  
   xaringan::moon_reader:
-    css: ["default", "assets/sydney-fonts.css", "assets/sydney.css", "assets/stellenbosch.css"]
+    css: ["default", "assets/sydney-fonts.css", "assets/sydney.css", "assets/samrc.css"]
     self_contained: false # if true, fonts will be stored locally
     seal: true # show a title slide with YAML information
     includes:
@@ -86,7 +86,7 @@ In other words, they interact with each elements of a visualisation, as defined 
 <div style="position:relative; margin-top: -12%; margin-left: 52%; font-size: 100%; background: white; text-align: center; width: 100px;">Theme</div>
 
 ---
-background-image: url("images/bigdata.png"), url("images/3dgraph.png"),url("images/insight.png")
+background-image: url("images/bigdata.png"), url("images/3-r-animated-cube.gif"),url("images/insight.png")
 background-position: 10% 50%, 60% 50%, 90% 50%
 background-size: 30%, 30%, 15%
 ## Why adding *interactivity* to data visualisations?  `r top_icon("question")`
@@ -669,12 +669,13 @@ PrintBibliography(bib)
 ]
 
 ---
-class: su-white
-<br/><br/>
+class: hide_logo
+background-image: url("assets/samrc_background.png")
+background-position: 50% 50%
+background-size: 100% 100%
 
 .font200[
-<p style ="font-size:200%; margin-bottom: -10px; margin-left: -5px;">Thank You!</p>
-[ acois@sun.ac.za](mailto:acois@sun.ac.za)
+<p style ="font-size:200%; margin-bottom: -10px; margin-left: 200px;">Thank You!</p>
 ]
 <br/><br/>
 

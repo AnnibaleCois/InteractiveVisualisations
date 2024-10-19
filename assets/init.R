@@ -59,7 +59,7 @@ top_icon = function(x) {
   icons::icon_style(
     icons::fontawesome(x),
     position = "fixed", top = 38, right = 50,
-    fill = "#561a34"  
+    fill = "#000000"  
   )
 }
 

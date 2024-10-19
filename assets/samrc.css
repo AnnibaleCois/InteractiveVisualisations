@@ -16,7 +16,7 @@ Adapted form Sydney University Theme
   margin-bottom: 10px;
 }
 .remark-slide-content > h2:first-of-type {
-  color: #561a34; 
+  color: #000000; 
   margin-top: 5px;
   margin-bottom: 10px;
 }
@@ -131,11 +131,24 @@ Adapted form Sydney University Theme
 
 .right {
   text-align: right;
-  margin-right: 50px;
 }
 
 .left {
   text-align: left;
+}
+
+
+/* Horizontal shift */
+
+.content-box-shift1 {
+  position: relative;
+  left:270px;
+}
+
+.content-box-shift2 {
+  position: relative;
+  left:270px;
+  top: 35px;
 }
 
 /****************************** Footnotes and quotes **********************************/
@@ -329,9 +342,7 @@ blockquote, .blockquote {
 .content-box-yellow,
 .content-box-darkorange,
 .content-box-darkpurple,
-.content-box-darkyellow,
-.content-box-shift1,
-.content-box-shift2 
+.content-box-darkyellow
 {
   box-sizing: border-box;
   border-radius: 10px;
@@ -368,19 +379,6 @@ blockquote, .blockquote {
 .content-box-darkyellow .remark-inline-code
 { 
   background: none;
-}
-
-/* Special */
-.content-box-shift1 { background-color: #fef5c466; 
-                      padding-left: 25%;
-                      padding-top: 0%;
-                      padding-bottom: 0%;
-}
-
-.content-box-shift2 { background-color: #c93f2566; 
-                      padding-left: 25%;
-                      padding-top: 1%;
-                      padding-bottom: 1%;
 }
 
 /************************************ Backgrounds *************************************/
@@ -429,7 +427,7 @@ blockquote, .blockquote {
 
 .su-white {
   background-color: #FFFFFF; 
-  color: #561a34;
+  color: #007DB6;
 }
 
 /* Example slides */
@@ -549,7 +547,7 @@ a, a > code {
 /* With background */
 
 .title-slide {
-  background-image: url(seminars.png), url(subanner_3.jpg);
+  background-image: url(seminars.png), url(samrc_background_flip.png);
   background-position: 0% 3%, 50% 50%;
   background-size: 100%, 100% 100%;
   text-align:left;
