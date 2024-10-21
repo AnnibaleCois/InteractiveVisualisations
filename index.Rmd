@@ -86,29 +86,32 @@ In other words, they interact with each elements of a visualisation, as defined 
 <div style="position:relative; margin-top: -12%; margin-left: 52%; font-size: 100%; background: white; text-align: center; width: 100px;">Theme</div>
 
 ---
-background-image: url("images/bigdata.png"), url("images/3-r-animated-cube.gif"),url("images/insight.png")
-background-position: 10% 50%, 60% 50%, 90% 50%
-background-size: 30%, 30%, 15%
+background-image: url("images/bigdata.png")
+background-position: 50% 60%
+background-size: 50%
 ## Why adding *interactivity* to data visualisations?  `r top_icon("question")`
-
---
-<img src = "images/circle.png" style = "width: 40%; position: relative; transform: rotate(90deg); margin-top: 7%; margin-left: 68%;"></img>
 
 ---
 class: hide_logo
-background-image: url("images/gtrends.png")
-background-position: 50% 50%
-background-size: 80%
+background-image: url("images/bigdata1.jpg")
+background-position: 50% 45%
+background-size: 70%
 
-<a href = "https://www.internetlivestats.com/google-search-statistics/"><img src = "images/gsearch.png" style = "width: 40%; position: relative; margin-top: -2%; margin-left: 70%;"></img></a>
-
-
-.footnote[.large[[https://trends.google.com/trends/?geo=ZA](https://trends.google.com/trends/?geo=ZA)]]
+.footnote[.small[[Cremin CJ et al. Big data: Historic advances and emerging trends in biomedical research (doi: 10.1016/j.crbiot.2022.02.004)](https://doi.org/10.1016/j.crbiot.2022.02.004)]]
 
 ???
 dynamic data (very rapid change: ~40000 search/second)
 large quantities
 different interests (content, geolocation,...)
+
+
+
+
+---
+background-image: url("images/3-r-animated-cube.gif")
+background-position: 50%
+background-size: 50%
+## Why adding *interactivity* to data visualisations?  `r top_icon("question")`
 
 ---
 class: hide_logo
@@ -129,6 +132,12 @@ The only way I can really appreciate 3d visualisations (excluding some very simp
 An example of 3d visualisations in infectious disease epidemiology (which we don't look at together)
 
 ---
+background-image: url("images/insight.png")
+background-position: 50% 50%
+background-size: 25%
+## Why adding *interactivity* to data visualisations?  `r top_icon("question")`
+
+---
 class: hide_logo
 background-image: url("images/perspectives.png")
 background-position: 50% 50%
@@ -136,6 +145,21 @@ background-size: 50%
 
 ???
 Insight: A new way of viewing the world that causes us to reexamine existing conventions and challenge the status quo.
+
+---
+class: hide_logo
+background-image: url("images/FacebookGlobalConnections2010.webp")
+background-position: 50% 50%
+background-size: 100% 100%
+
+.footnote[<br/>.small[[https://successcreeations.com/2908/our-facebook-connected-world/](https://successcreeations.com/2908/our-facebook-connected-world/)]]
+
+
+???
+The articol where this image is reported is about market penetration a, advertising and possibility to exp;and the business..
+To me, the images generates ideas regarding potential and limitations of mHealth applications in an unequally interconnected world.
+
+
 
 ---
 class: hide_logo

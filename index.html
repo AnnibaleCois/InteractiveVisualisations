@@ -4,11 +4,11 @@
     <title>Interactive Visualisations</title>
     <meta charset="utf-8" />
     <meta name="author" content="Burden of Disease Research Unit, South African Medical Research Council &amp;   School of Public Health, University of Cape Town  Email: annibale.cois@mrc.ac.za ORCID: 0000-0002-7014-6510 Web of Science: AAK-8603-2020     https://annibalecois.github.io" />
-    <script src="index_files/header-attrs-2.25/header-attrs.js"></script>
+    <script src="index_files/header-attrs-2.26/header-attrs.js"></script>
     <link href="index_files/remark-css-0.0.1/default.css" rel="stylesheet" />
     <link href="index_files/tile-view-0.2.6/tile-view.css" rel="stylesheet" />
     <script src="index_files/tile-view-0.2.6/tile-view.js"></script>
-    <script type="application/json" id="xaringanExtra-editable-docid">{"id":"ecc0e14b92194479b5d2fd2530c60442","expires":14}</script>
+    <script type="application/json" id="xaringanExtra-editable-docid">{"id":"x28677c4e71d4c77ba780e33e320c278","expires":14}</script>
     <script src="index_files/himalaya-1.1.0/himalaya.js"></script>
     <script src="index_files/js-cookie-3.0.0/js.cookie.js"></script>
     <link href="index_files/editable-0.2.6/editable.css" rel="stylesheet" />
@@ -19,8 +19,8 @@
     <script>document.addEventListener('DOMContentLoaded', function() { window.xeScribble = new Scribble({"pen_color":["#FF0000"],"pen_size":3,"eraser_size":30,"palette":[]}) })</script>
     <script src="index_files/xaringanExtra-webcam-0.0.1/webcam.js"></script>
     <script id="xaringanExtra-webcam-options" type="application/json">{"width":"200","height":"200","margin":"1em"}</script>
-    <link href="index_files/panelset-0.3.0/panelset.css" rel="stylesheet" />
-    <script src="index_files/panelset-0.3.0/panelset.js"></script>
+    <link href="index_files/panelset-0.2.6/panelset.css" rel="stylesheet" />
+    <script src="index_files/panelset-0.2.6/panelset.js"></script>
     <script type="text/x-mathjax-config">
       MathJax.Hub.Config({
         TeX: { equationNumbers: { autoNumber: "AMS" } },
@@ -151,29 +151,32 @@ In other words, they interact with each elements of a visualisation, as defined 
 &lt;div style="position:relative; margin-top: -12%; margin-left: 52%; font-size: 100%; background: white; text-align: center; width: 100px;"&gt;Theme&lt;/div&gt;
 
 ---
-background-image: url("images/bigdata.png"), url("images/3-r-animated-cube.gif"),url("images/insight.png")
-background-position: 10% 50%, 60% 50%, 90% 50%
-background-size: 30%, 30%, 15%
+background-image: url("images/bigdata.png")
+background-position: 50% 60%
+background-size: 50%
 ## Why adding *interactivity* to data visualisations?  &lt;svg viewBox="0 0 384 512" style="height:1em;display:inline-block;fill:#000000;position:fixed;top:38;right:50;" xmlns="http://www.w3.org/2000/svg"&gt;  &lt;path d="M202.021 0C122.202 0 70.503 32.703 29.914 91.026c-7.363 10.58-5.093 25.086 5.178 32.874l43.138 32.709c10.373 7.865 25.132 6.026 33.253-4.148 25.049-31.381 43.63-49.449 82.757-49.449 30.764 0 68.816 19.799 68.816 49.631 0 22.552-18.617 34.134-48.993 51.164-35.423 19.86-82.299 44.576-82.299 106.405V320c0 13.255 10.745 24 24 24h72.471c13.255 0 24-10.745 24-24v-5.773c0-42.86 125.268-44.645 125.268-160.627C377.504 66.256 286.902 0 202.021 0zM192 373.459c-38.196 0-69.271 31.075-69.271 69.271 0 38.195 31.075 69.27 69.271 69.27s69.271-31.075 69.271-69.271-31.075-69.27-69.271-69.27z"&gt;&lt;/path&gt;&lt;/svg&gt;
-
---
-&lt;img src = "images/circle.png" style = "width: 40%; position: relative; transform: rotate(90deg); margin-top: 7%; margin-left: 68%;"&gt;&lt;/img&gt;
 
 ---
 class: hide_logo
-background-image: url("images/gtrends.png")
-background-position: 50% 50%
-background-size: 80%
+background-image: url("images/bigdata1.jpg")
+background-position: 50% 45%
+background-size: 70%
 
-&lt;a href = "https://www.internetlivestats.com/google-search-statistics/"&gt;&lt;img src = "images/gsearch.png" style = "width: 40%; position: relative; margin-top: -2%; margin-left: 70%;"&gt;&lt;/img&gt;&lt;/a&gt;
-
-
-.footnote[.large[[https://trends.google.com/trends/?geo=ZA](https://trends.google.com/trends/?geo=ZA)]]
+.footnote[.small[[Cremin CJ et al. Big data: Historic advances and emerging trends in biomedical research (doi: 10.1016/j.crbiot.2022.02.004)](https://doi.org/10.1016/j.crbiot.2022.02.004)]]
 
 ???
 dynamic data (very rapid change: ~40000 search/second)
 large quantities
 different interests (content, geolocation,...)
+
+
+
+
+---
+background-image: url("images/3-r-animated-cube.gif")
+background-position: 50%
+background-size: 50%
+## Why adding *interactivity* to data visualisations?  &lt;svg viewBox="0 0 384 512" style="height:1em;display:inline-block;fill:#000000;position:fixed;top:38;right:50;" xmlns="http://www.w3.org/2000/svg"&gt;  &lt;path d="M202.021 0C122.202 0 70.503 32.703 29.914 91.026c-7.363 10.58-5.093 25.086 5.178 32.874l43.138 32.709c10.373 7.865 25.132 6.026 33.253-4.148 25.049-31.381 43.63-49.449 82.757-49.449 30.764 0 68.816 19.799 68.816 49.631 0 22.552-18.617 34.134-48.993 51.164-35.423 19.86-82.299 44.576-82.299 106.405V320c0 13.255 10.745 24 24 24h72.471c13.255 0 24-10.745 24-24v-5.773c0-42.86 125.268-44.645 125.268-160.627C377.504 66.256 286.902 0 202.021 0zM192 373.459c-38.196 0-69.271 31.075-69.271 69.271 0 38.195 31.075 69.27 69.271 69.27s69.271-31.075 69.271-69.271-31.075-69.27-69.271-69.27z"&gt;&lt;/path&gt;&lt;/svg&gt;
 
 ---
 class: hide_logo
@@ -194,6 +197,12 @@ The only way I can really appreciate 3d visualisations (excluding some very simp
 An example of 3d visualisations in infectious disease epidemiology (which we don't look at together)
 
 ---
+background-image: url("images/insight.png")
+background-position: 50% 50%
+background-size: 25%
+## Why adding *interactivity* to data visualisations?  &lt;svg viewBox="0 0 384 512" style="height:1em;display:inline-block;fill:#000000;position:fixed;top:38;right:50;" xmlns="http://www.w3.org/2000/svg"&gt;  &lt;path d="M202.021 0C122.202 0 70.503 32.703 29.914 91.026c-7.363 10.58-5.093 25.086 5.178 32.874l43.138 32.709c10.373 7.865 25.132 6.026 33.253-4.148 25.049-31.381 43.63-49.449 82.757-49.449 30.764 0 68.816 19.799 68.816 49.631 0 22.552-18.617 34.134-48.993 51.164-35.423 19.86-82.299 44.576-82.299 106.405V320c0 13.255 10.745 24 24 24h72.471c13.255 0 24-10.745 24-24v-5.773c0-42.86 125.268-44.645 125.268-160.627C377.504 66.256 286.902 0 202.021 0zM192 373.459c-38.196 0-69.271 31.075-69.271 69.271 0 38.195 31.075 69.27 69.271 69.27s69.271-31.075 69.271-69.271-31.075-69.27-69.271-69.27z"&gt;&lt;/path&gt;&lt;/svg&gt;
+
+---
 class: hide_logo
 background-image: url("images/perspectives.png")
 background-position: 50% 50%
@@ -201,6 +210,21 @@ background-size: 50%
 
 ???
 Insight: A new way of viewing the world that causes us to reexamine existing conventions and challenge the status quo.
+
+---
+class: hide_logo
+background-image: url("images/FacebookGlobalConnections2010.webp")
+background-position: 50% 50%
+background-size: 100% 100%
+
+.footnote[&lt;br/&gt;.small[[https://successcreeations.com/2908/our-facebook-connected-world/](https://successcreeations.com/2908/our-facebook-connected-world/)]]
+
+
+???
+The articol where this image is reported is about market penetration a, advertising and possibility to exp;and the business..
+To me, the images generates ideas regarding potential and limitations of mHealth applications in an unequally interconnected world.
+
+
 
 ---
 class: hide_logo
@@ -304,7 +328,7 @@ class: hide_logo
 .scroll-output[
 
 
-``` r
+```r
 library(shiny)
 
 ui &lt;- fluidPage(
@@ -363,7 +387,7 @@ background-size: 25%
 
 .footnotesize[
 
-``` r
+```r
 load("data/cvd.RData")
 head(DATA)
 ```
@@ -381,7 +405,7 @@ head(DATA)
 
 .pull-left[
 
-``` r
+```r
 nrow(DATA)
 ```
 
@@ -389,7 +413,7 @@ nrow(DATA)
 [1] 10000
 ```
 
-``` r
+```r
 unique(DATA$year)
 ```
 
@@ -418,14 +442,14 @@ class: hide_logo
 .center[*Install packages*]
 
 
-``` r
+```r
 install.packages(c("shiny","shinydashboard","ggplot2","plotly"))
 ```
 
 .center[*Create three files .R*]
 
 
-``` r
+```r
 global.R --&gt; code to be execute when the app starts 
 server.R --&gt; server
 ui.R --&gt; user interface
@@ -437,7 +461,7 @@ class: hide_logo
 .center[*global.r*]
 
 
-``` r
+```r
 library(shiny)
 library(dplyr)
 library(ggplot2)
@@ -452,7 +476,7 @@ class: hide_logo
 .center[*ui.r*]
 
 
-``` r
+```r
 dashboardPage(
   dashboardHeader(),
   dashboardSidebar(),
@@ -462,7 +486,7 @@ dashboardPage(
 .center[*server.r*]
 
 
-``` r
+```r
 function(input, output) {
 ```
 
@@ -487,7 +511,7 @@ class: hide_logo
 
 .scroll-output[
 
-``` r
+```r
 dashboardPage(
   dashboardHeader(title = "Cardiovascular Risk Dashboard"),
   dashboardSidebar(
@@ -571,7 +595,7 @@ class: hide_logo
 
 .scroll-output[
 
-``` r
+```r
 function(input, output) {
 
 # Filter data according to inputs
@@ -711,7 +735,7 @@ background-size: 90%
 
 ---
 
-``` r
+```r
 #install.packages(c("rmarkdown","rsconnect")
 
 library(rsconnect)
@@ -754,25 +778,26 @@ background-size: 20%
 ## References  
 
 .scriptsize[
-Chishtie, J., I. A. Bielska, A. Barrera, et al. (2022). "Interactive Visualization Applications in Population Health and Health
-Services Research: Systematic Scoping Review". EN. In: _Journal of Medical Internet Research_ 24.2. Company: Journal of Medical
-Internet Research Distributor: Journal of Medical Internet Research Institution: Journal of Medical Internet Research Label: Journal
-of Medical Internet Research Publisher: JMIR Publications Inc., Toronto, Canada, p. e27534. DOI:
-[10.2196/27534](https://doi.org/10.2196%2F27534). URL: [https://www.jmir.org/2022/2/e27534](https://www.jmir.org/2022/2/e27534)
-(visited on Oct. 31, 2022).
+Chishtie, J., I. A. Bielska, A. Barrera, et al. (2022). "Interactive Visualization Applications in Population Health and
+Health Services Research: Systematic Scoping Review". EN. In: _Journal of Medical Internet Research_ 24.2. Company: Journal
+of Medical Internet Research Distributor: Journal of Medical Internet Research Institution: Journal of Medical Internet
+Research Label: Journal of Medical Internet Research Publisher: JMIR Publications Inc., Toronto, Canada, p. e27534. DOI:
+[10.2196/27534](https://doi.org/10.2196%2F27534). URL:
+[https://www.jmir.org/2022/2/e27534](https://www.jmir.org/2022/2/e27534) (visited on Oct. 31, 2022).
 
 Ebert, A. and G. H. Weber, ed. (2018). _Scalable Interactive Visualization_. Eng. MDPI. ISBN: 3-03842-804-3.
 
-Liere, R., T. Adriaansen, and E. Zudilova-Seinstra (2009). _Trends in interactive visualization: state-of-the-art survey_. Springer.
+Liere, R., T. Adriaansen, and E. Zudilova-Seinstra (2009). _Trends in interactive visualization: state-of-the-art survey_.
+Springer.
 
-Luz, S. and M. Masoodian (2022). "Exploring Environmental and Geographical Factors Influencing the Spread of Infectious Diseases with
-Interactive Maps". In: _Sustainability_ 14.16, p. 9990.
+Luz, S. and M. Masoodian (2022). "Exploring Environmental and Geographical Factors Influencing the Spread of Infectious
+Diseases with Interactive Maps". In: _Sustainability_ 14.16, p. 9990.
 
-Ola, O. and K. Sedig (2016). "Beyond simple charts: Design of visualizations for big health data." Eng. In: _Online J Public Health
-Inform_ 8.3, p. e195. ISSN: 1947-2579. DOI: [10.5210/ojphi.v8i3.7100](https://doi.org/10.5210%2Fojphi.v8i3.7100).
+Ola, O. and K. Sedig (2016). "Beyond simple charts: Design of visualizations for big health data." Eng. In: _Online J Public
+Health Inform_ 8.3, p. e195. ISSN: 1947-2579. DOI: [10.5210/ojphi.v8i3.7100](https://doi.org/10.5210%2Fojphi.v8i3.7100).
 
-Ward, M. O., G. Grinstein, and D. Keim (2010). _Interactive data visualization: foundations, techniques, and applications_. AK
-Peters/CRC Press.
+Ward, M. O., G. Grinstein, and D. Keim (2010). _Interactive data visualization: foundations, techniques, and applications_.
+AK Peters/CRC Press.
 ]
 
 ---

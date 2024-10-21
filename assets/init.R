@@ -22,8 +22,8 @@ library(hexbin)
 library(fBasics)
 
 library(raster)
-library(rgdal)
-library(rgeos)
+#library(rgdal)
+#library(rgeos)
 library(sp)
 
 knitr::opts_chunk$set(message = FALSE, warning = FALSE, comment = "", cache = F)
