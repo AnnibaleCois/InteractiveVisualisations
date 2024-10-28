@@ -8,7 +8,7 @@
     <link href="index_files/remark-css-0.0.1/default.css" rel="stylesheet" />
     <link href="index_files/tile-view-0.2.6/tile-view.css" rel="stylesheet" />
     <script src="index_files/tile-view-0.2.6/tile-view.js"></script>
-    <script type="application/json" id="xaringanExtra-editable-docid">{"id":"x28677c4e71d4c77ba780e33e320c278","expires":14}</script>
+    <script type="application/json" id="xaringanExtra-editable-docid">{"id":"a63a6eda7dbc4f4799ba17e2bd1fb692","expires":14}</script>
     <script src="index_files/himalaya-1.1.0/himalaya.js"></script>
     <script src="index_files/js-cookie-3.0.0/js.cookie.js"></script>
     <link href="index_files/editable-0.2.6/editable.css" rel="stylesheet" />
@@ -321,7 +321,19 @@ background-size: 60%
 ## Example 1: the *old faithful geyser* app 
 
 --
-&lt;img src = "images/ofg_2.png" style = "width: 50%; position: relative; margin-top: 10%; margin-left: 25%;"&gt;&lt;/img&gt;
+&lt;img src = "images/arrow_1.png" style = "width: 20%; position: absolute; margin-top: 16.5%; margin-left: 9.5%; transform: rotate(-20deg);"&gt;&lt;/img&gt;
+
+--
+&lt;img src = "images/circle.png" style = "width: 30%; position: absolute; margin-top: 18%; margin-left: 40%; "&gt;&lt;/img&gt;
+
+---
+class: hide_logo
+background-image: url("images/ofg_2.png")
+background-position: 50% 50%
+background-size: 60%
+
+--
+&lt;img src = "images/ofg_3.png" style = "width: 50%; position: relative; margin-top: 10%; margin-left: 25%;"&gt;&lt;/img&gt;
 
 ---
 class: hide_logo
@@ -455,9 +467,16 @@ server.R --&gt; server
 ui.R --&gt; user interface
 ```
 
----
-class: hide_logo
 
+.center[*Download the example dataset*]
+
+.footnote[.large[.center[
+&lt;img src = "images/github.png" width = "85"&gt;&lt;/img&gt; &lt;br/&gt;&lt;br/&gt;
+Links: &lt;a href="https://annibalecois.github.io/InteractiveVisualisations/code/cvd/cvd.RData" download&gt;https://annibalecois.github.io/InteractiveVisualisations/code/cvd/cvd.RData&lt;/a&gt;
+]]]
+---
+&lt;br/&gt;
+&lt;br/&gt;
 .center[*global.r*]
 
 
@@ -471,31 +490,75 @@ library(plotly)
 load("cvd.RDATA")
 ```
 
-class: hide_logo
-
+---
+&lt;br/&gt;
+&lt;br/&gt;
 .center[*ui.r*]
 
 
 ```r
 dashboardPage(
-  dashboardHeader(),
-  dashboardSidebar(),
-  dashboardBody()
+  dashboardHeader(.....),
+  dashboardSidebar(.....),
+  dashboardBody(.....)
+)
 ```
 
+---
+class: hide_logo
+background-image: url("images/app.png")
+background-position: 50% 50%
+background-size: 90%
+
+--
+&lt;img src = "images/arrow_1.png" style = "width: 20%; position: absolute; margin-top: 3%; margin-left: 15%; transform: rotate(-20deg"&gt;&lt;/img&gt;
+
+--
+&lt;img src = "images/arrow_1.png" style = "width: 20%; position: absolute; margin-top: 20%; margin-left: 5%; transform: rotate(-170deg"&gt;&lt;/img&gt;
+
+--
+&lt;img src = "images/arrow_1.png" style = "width: 20%; position: absolute; margin-top: 20%; margin-left: 30%; transform: rotate(0deg"&gt;&lt;/img&gt;
+
+---
+&lt;br/&gt;
+&lt;br/&gt;
 .center[*server.r*]
 
 
 ```r
 function(input, output) {
+}
 ```
 
 ---
 class: hide_logo
-background-image: url("images/rstudio.png")
+background-image: url("images/typing.png")
+background-position: 50% 50%
+background-size: 50%
+
+---
+class: hide_logo
+background-image: url("images/app_1.png")
+background-position: 50% 50%
+background-size: 90%
+
+---
+class: hide_logo
+background-image: url("images/app_2.png")
+background-position: 50% 50%
+background-size: 90%
+
+---
+class: hide_logo
+background-image: url("images/app.png")
+background-position: 50% 50%
+background-size: 90%
+
+---
+class: hide_logo
+background-image: url("images/code.png")
 background-position: 50% 50%
 background-size: 30%
-
 
 .footnote[.large[
 &lt;img src = "images/github.png" width = "85"&gt;&lt;/img&gt; &lt;br/&gt;&lt;br/&gt;
@@ -505,6 +568,7 @@ Code of the example on GitHub (*/code/cvd*): &lt;br/&gt;
 Direct download links: &lt;a href="code/cvd/global.R" download&gt;global.R&lt;/a&gt;, &lt;a href="code/cvd/ui.R" download&gt;ui.R&lt;/a&gt;, &lt;a href="code/cvd/server.R" download&gt;server.R&lt;/a&gt;, &lt;a href="code/cvd/cvd.RDATA" download&gt;cvd.RDATA&lt;/a&gt;
 ]
 ]
+
 ---
 class: hide_logo
 ## User Interface (ui.R)
@@ -577,11 +641,6 @@ dashboardPage(
             tableOutput("riskTable")
           )
         )
-      ),
-      tabItem("rawdata",
-        numericInput("maxrows", "Rows to show", 25),
-        verbatimTextOutput("rawtable"),
-        downloadButton("downloadCsv", "Download as CSV")
       )
     )
   )
@@ -685,33 +744,12 @@ function(input, output) {
   }, digits = 1)
   
   
-  # Raw data table 
-  
-   output$rawtable &lt;- renderPrint({
-    orig &lt;- options(width = 1000)
-    print(tail(data_filtered(), input$maxrows), row.names = FALSE)
-    options(orig)
-  }) 
   
   # Download data 
-  
-   output$downloadCsv &lt;- downloadHandler(
-    filename = "data.csv",
-    content = function(file) {
-      write.csv(data_filtered(), file)
-    },
-    contentType = "text/csv"
-  )
+
 }
 ```
 ]
-
----
-class: hide_logo
-background-image: url("images/app.png")
-background-position: 50% 50%
-background-size: 90%
-
 ---
 class: hide_logo
 background-image: url("images/deploy.png")
@@ -778,26 +816,26 @@ background-size: 20%
 ## References  
 
 .scriptsize[
-Chishtie, J., I. A. Bielska, A. Barrera, et al. (2022). "Interactive Visualization Applications in Population Health and
-Health Services Research: Systematic Scoping Review". EN. In: _Journal of Medical Internet Research_ 24.2. Company: Journal
-of Medical Internet Research Distributor: Journal of Medical Internet Research Institution: Journal of Medical Internet
-Research Label: Journal of Medical Internet Research Publisher: JMIR Publications Inc., Toronto, Canada, p. e27534. DOI:
-[10.2196/27534](https://doi.org/10.2196%2F27534). URL:
-[https://www.jmir.org/2022/2/e27534](https://www.jmir.org/2022/2/e27534) (visited on Oct. 31, 2022).
+Chishtie, J., I. A. Bielska, A. Barrera, et al. (2022). "Interactive Visualization Applications in Population Health and Health
+Services Research: Systematic Scoping Review". EN. In: _Journal of Medical Internet Research_ 24.2. Company: Journal of Medical
+Internet Research Distributor: Journal of Medical Internet Research Institution: Journal of Medical Internet Research Label:
+Journal of Medical Internet Research Publisher: JMIR Publications Inc., Toronto, Canada, p. e27534. DOI:
+[10.2196/27534](https://doi.org/10.2196%2F27534). URL: [https://www.jmir.org/2022/2/e27534](https://www.jmir.org/2022/2/e27534)
+(visited on Oct. 31, 2022).
 
 Ebert, A. and G. H. Weber, ed. (2018). _Scalable Interactive Visualization_. Eng. MDPI. ISBN: 3-03842-804-3.
 
 Liere, R., T. Adriaansen, and E. Zudilova-Seinstra (2009). _Trends in interactive visualization: state-of-the-art survey_.
 Springer.
 
-Luz, S. and M. Masoodian (2022). "Exploring Environmental and Geographical Factors Influencing the Spread of Infectious
-Diseases with Interactive Maps". In: _Sustainability_ 14.16, p. 9990.
+Luz, S. and M. Masoodian (2022). "Exploring Environmental and Geographical Factors Influencing the Spread of Infectious Diseases
+with Interactive Maps". In: _Sustainability_ 14.16, p. 9990.
 
 Ola, O. and K. Sedig (2016). "Beyond simple charts: Design of visualizations for big health data." Eng. In: _Online J Public
 Health Inform_ 8.3, p. e195. ISSN: 1947-2579. DOI: [10.5210/ojphi.v8i3.7100](https://doi.org/10.5210%2Fojphi.v8i3.7100).
 
-Ward, M. O., G. Grinstein, and D. Keim (2010). _Interactive data visualization: foundations, techniques, and applications_.
-AK Peters/CRC Press.
+Ward, M. O., G. Grinstein, and D. Keim (2010). _Interactive data visualization: foundations, techniques, and applications_. AK
+Peters/CRC Press.
 ]
 
 ---

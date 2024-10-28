@@ -256,7 +256,19 @@ background-size: 60%
 ## Example 1: the *old faithful geyser* app 
 
 --
-<img src = "images/ofg_2.png" style = "width: 50%; position: relative; margin-top: 10%; margin-left: 25%;"></img>
+<img src = "images/arrow_1.png" style = "width: 20%; position: absolute; margin-top: 16.5%; margin-left: 9.5%; transform: rotate(-20deg);"></img>
+
+--
+<img src = "images/circle.png" style = "width: 30%; position: absolute; margin-top: 18%; margin-left: 40%; "></img>
+
+---
+class: hide_logo
+background-image: url("images/ofg_2.png")
+background-position: 50% 50%
+background-size: 60%
+
+--
+<img src = "images/ofg_3.png" style = "width: 50%; position: relative; margin-top: 10%; margin-left: 25%;"></img>
 
 ---
 class: hide_logo
@@ -368,9 +380,16 @@ server.R --> server
 ui.R --> user interface
 ```
 
----
-class: hide_logo
 
+.center[*Download the example dataset*]
+
+.footnote[.large[.center[
+<img src = "images/github.png" width = "85"></img> <br/><br/>
+Links: <a href="https://annibalecois.github.io/InteractiveVisualisations/code/cvd/cvd.RData" download>https://annibalecois.github.io/InteractiveVisualisations/code/cvd/cvd.RData</a>
+]]]
+---
+<br/>
+<br/>
 .center[*global.r*]
 
 ```{r, eval = FALSE}
@@ -383,29 +402,73 @@ library(plotly)
 load("cvd.RDATA")
 ```
 
-class: hide_logo
-
+---
+<br/>
+<br/>
 .center[*ui.r*]
 
 ```{r, eval = FALSE}
 dashboardPage(
-  dashboardHeader(),
-  dashboardSidebar(),
-  dashboardBody()
-```
-
-.center[*server.r*]
-
-```{r, eval = FALSE}
-function(input, output) {
+  dashboardHeader(.....),
+  dashboardSidebar(.....),
+  dashboardBody(.....)
+)
 ```
 
 ---
 class: hide_logo
-background-image: url("images/rstudio.png")
+background-image: url("images/app.png")
+background-position: 50% 50%
+background-size: 90%
+
+--
+<img src = "images/arrow_1.png" style = "width: 20%; position: absolute; margin-top: 3%; margin-left: 15%; transform: rotate(-20deg"></img>
+
+--
+<img src = "images/arrow_1.png" style = "width: 20%; position: absolute; margin-top: 20%; margin-left: 5%; transform: rotate(-170deg"></img>
+
+--
+<img src = "images/arrow_1.png" style = "width: 20%; position: absolute; margin-top: 20%; margin-left: 30%; transform: rotate(0deg"></img>
+
+---
+<br/>
+<br/>
+.center[*server.r*]
+
+```{r, eval = FALSE}
+function(input, output) {
+}
+```
+
+---
+class: hide_logo
+background-image: url("images/typing.png")
+background-position: 50% 50%
+background-size: 50%
+
+---
+class: hide_logo
+background-image: url("images/app_1.png")
+background-position: 50% 50%
+background-size: 90%
+
+---
+class: hide_logo
+background-image: url("images/app_2.png")
+background-position: 50% 50%
+background-size: 90%
+
+---
+class: hide_logo
+background-image: url("images/app.png")
+background-position: 50% 50%
+background-size: 90%
+
+---
+class: hide_logo
+background-image: url("images/code.png")
 background-position: 50% 50%
 background-size: 30%
-
 
 .footnote[.large[
 <img src = "images/github.png" width = "85"></img> <br/><br/>
@@ -415,6 +478,7 @@ Code of the example on GitHub (*/code/cvd*): <br/>
 Direct download links: <a href="code/cvd/global.R" download>global.R</a>, <a href="code/cvd/ui.R" download>ui.R</a>, <a href="code/cvd/server.R" download>server.R</a>, <a href="code/cvd/cvd.RDATA" download>cvd.RDATA</a>
 ]
 ]
+
 ---
 class: hide_logo
 ## User Interface (ui.R)
@@ -486,11 +550,6 @@ dashboardPage(
             tableOutput("riskTable")
           )
         )
-      ),
-      tabItem("rawdata",
-        numericInput("maxrows", "Rows to show", 25),
-        verbatimTextOutput("rawtable"),
-        downloadButton("downloadCsv", "Download as CSV")
       )
     )
   )
@@ -593,34 +652,13 @@ function(input, output) {
   }, digits = 1)
   
   
-  # Raw data table 
-  
-   output$rawtable <- renderPrint({
-    orig <- options(width = 1000)
-    print(tail(data_filtered(), input$maxrows), row.names = FALSE)
-    options(orig)
-  }) 
   
   # Download data 
-  
-   output$downloadCsv <- downloadHandler(
-    filename = "data.csv",
-    content = function(file) {
-      write.csv(data_filtered(), file)
-    },
-    contentType = "text/csv"
-  )
+
 }
 
 ```
 ]
-
----
-class: hide_logo
-background-image: url("images/app.png")
-background-position: 50% 50%
-background-size: 90%
-
 ---
 class: hide_logo
 background-image: url("images/deploy.png")

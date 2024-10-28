@@ -1,5 +1,6 @@
 dashboardPage(
   dashboardHeader(title = "Cardiovascular Risk Dashboard"),
+  
   dashboardSidebar(
     sliderInput(
       inputId = "riskThreshold", 
@@ -36,40 +37,26 @@ dashboardPage(
       inline = TRUE,
       choices = unique(DATA$year),
       selected = 2016
-    ), 
-    sidebarMenu(
-      menuItem("Dashboard", tabName = "dashboard"),
-      menuItem("Raw data", tabName = "rawdata")
     )
   ),
   dashboardBody(
-    tabItems(
-      tabItem("dashboard",
-        fluidRow(
-          valueBoxOutput("ssize"),
-          valueBoxOutput("cvdrisk"),
-          valueBoxOutput("excessrisk")
-        ),
-        fluidRow(
-          box(
-            width = 8, status = "info", solidHeader = TRUE,
-            title = "Cardiovascular risk, by province",
-            plotlyOutput("riskPlot", width = "100%", height = 600)
-            #plotOutput("riskPlot", width = "100%", height = 600)
-          ),
-          box(
-            width = 4, status = "info",
-            title = "Risk factors, averages",
-            tableOutput("riskTable")
-          )
-        )
-      ),
-      tabItem("rawdata",
-        numericInput("maxrows", "Rows to show", 25),
-        verbatimTextOutput("rawtable"),
-        downloadButton("downloadCsv", "Download as CSV")
-      )
-    )
+              fluidRow(
+                valueBoxOutput("ssize", width = 4),
+                valueBoxOutput("cvdrisk", width = 4),
+                valueBoxOutput("excessrisk", width = 4)
+              ),
+              fluidRow(
+                box(
+                  width = 8, status = "info", solidHeader = TRUE,
+                  title = "Cardiovascular risk, by province",
+                  plotlyOutput("riskPlot", width = "100%", height = 600)
+                  #plotOutput("riskPlot", width = "100%", height = 600)
+                ),
+                box(
+                  width = 4, status = "info",
+                  title = "Risk factors, averages",
+                  tableOutput("riskTable")
+                )
+              )
   )
 )
-
